@@ -53,9 +53,9 @@ const questionsPhase1 = [
         question: "O que é uma variável?",
         answers: [
             { text: "Um operador", correct: false },
-            { text: "Um espaço de memória", correct: true },
             { text: "Um objeto", correct: false },
             { text: "Uma comparação", correct: false }
+            { text: "Um espaço de memória", correct: true },
         ]
     },
     {
@@ -71,8 +71,8 @@ const questionsPhase1 = [
         question: "O que é o HTML?",
         answers: [
             { text: "Uma linguagem de programação", correct: false },
-            { text: "Uma linguagem de marcação", correct: true },
             { text: "Um framework", correct: false },
+              { text: "Uma linguagem de marcação", correct: true },
             { text: "Um sistema operacional", correct: false }
         ]
     },
@@ -97,8 +97,8 @@ const questionsPhase1 = [
     {
         question: "Qual é a função do JavaScript?",
         answers: [
-            { text: "Estilizar páginas web", correct: false },
             { text: "Adicionar interatividade às páginas web", correct: true },
+            { text: "Estilizar páginas web", correct: false },
             { text: "Estruturar o conteúdo", correct: false },
             { text: "Criar imagens", correct: false }
         ]
