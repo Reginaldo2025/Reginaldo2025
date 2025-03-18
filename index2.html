@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+   <header class="header">
+    <nav> 
+        <ul>
+            <h1>Quiz Programing</h1>
+           <li><a href="index2.html">Home</a></li>
+           <li><a href="notiçias.html">Noticías</a></li>
+           <li><a href="chatbot.html">Chatbot</a></li>
+           <li><a href="contacto.html">Contato</a></li>
+        </ul>
+       </nav>
+         </header>
+
+    <div class="container">
+        <!-- Tela Inicial -->
+      
+        <div id="welcome-screen" class="welcome-screen">
+            <h1>Bem-vindo ao Quiz Interativo! 🎉</h1>
+            <p>Teste seus conhecimentos em diversas áreas e divirta-se!</p>
+            <div class="buttons">
+                <button onclick="showRegister()">Criar Conta</button>
+                <button onclick="showLogin()">Login</button>
+            </div>
+        </div>
+
+        <!-- Tela de Cadastro -->
+        <div id="register-screen" class="auth-screen hidden">
+            <h2>Criação de Conta</h2>
+            <input type="text" id="register-username" placeholder="Escolha um nome de usuário">
+            <input type="password" id="register-password" placeholder="Crie uma senha">
+            <button onclick="registerUser()">Cadastrar</button>
+            <br>
+            <br>
+            <p>Já tem conta? <a href="#" onclick="showLogin()">Faça login</a></p>
+        </div>
+        <!-- Tela de Login -->
+        <div id="login-screen" class="auth-screen hidden">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Digite seu usuário">
+            <input type="password" id="login-password" placeholder="Digite sua senha">
+            <button onclick="loginUser()">Entrar</button>
+            <p>Ainda não tem conta? <a href="#" onclick="showRegister()">Cadastre-se</a></p>
+        </div>
+
+        <!-- Tela do Jogo -->
+        <div id="quiz-screen" class="hidden">
+            <h1>Quiz Interativo</h1>
+            <div id="quiz-container">
+                <p id="question">Carregando pergunta...</p>
+                <div id="answer-buttons" class="btn-container"></div>
+            </div>
+
+            <div id="timer">10</div>
+            <button id="next-btn">Próxima Pergunta</button>
+            <p id="score">Pontuação: 0</p>
+            <p id="greeting"></p>
+        </div>
+    </div>
+    <footer class="game-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 QuizMaster - Todos os direitos reservados.</p>
+            <nav class="footer-nav">
+                <a href="#">Sobre o Jogo</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </nav>
+        </div>
+    </footer>
+    <audio id="background-music" autoplay loop>
+        <source src="musicas/Rihanna_Diamonds.mp3" type="audio/mp3">
+    <script>
+        // Elementos da tela
+        const welcomeScreen = document.getElementById("welcome-screen");
+        const registerScreen = document.getElementById("register-screen");
+        const loginScreen = document.getElementById("login-screen");
+        const quizScreen = document.getElementById("quiz-screen");
+        const greeting = document.getElementById("greeting");
+
+        // Função para exibir tela de cadastro
+        function showRegister() {
+            welcomeScreen.style.display = "none";
+            registerScreen.style.display = "block";
+        }
+
+        // Função para exibir tela de login
+        function showLogin() {
+            welcomeScreen.style.display = "none";
+            loginScreen.style.display = "block";
+        }
+
+        // Salvar usuário (simulando banco de dados local)
+        function registerUser() {
+            let username = document.getElementById("register-username").value;
+            let password = document.getElementById("register-password").value;
+
+            if (username && password) {
+                localStorage.setItem("user", username);
+                localStorage.setItem("password", password);
+                alert("Conta criada com sucesso!");
+                showLogin();
+            } else {
+                alert("Preencha todos os campos!");
+            }
+        }
+
+        // Login de usuário
+        function loginUser() {
+            let username = document.getElementById("login-username").value;
+            let password = document.getElementById("login-password").value;
+
+            let storedUser = localStorage.getItem("user");
+            let storedPass = localStorage.getItem("password");
+
+            if (username === storedUser && password === storedPass) {
+                alert("Login bem-sucedido!");
+                startGame(username);
+            } else {
+                alert("Usuário ou senha incorretos!");
+            }
+        }
+
+        // Iniciar jogo após login
+        function startGame(username) {
+            // Armazenar o nome do usuário no localStorage
+            localStorage.setItem("currentUser", username);
+            // Redirecionar para a página do jogo
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

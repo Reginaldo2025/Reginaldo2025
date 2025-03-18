@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <nav>
+           
+         <ul>
+             <h1>Quiz Programing</h1>
+            <li><a href="index2.html">Home</a></li>
+            <li><a href="notiçias.html">Notícias</a></li>
+            <li><a href="chatbot.html">Chatbot</a></li>
+            <li><a href="contacto.html">Contato</a></li>
+         </ul>
+        </nav>
+     </header>
+
+    <div class="container">
+        <a href="index2.html">Voltar</a>
+        <!-- Tela do Jogo -->
+        <div id="quiz-screen">
+            <h1>Quiz Interativo</h1>
+            <div id="quiz-container">
+                <p id="question">Carregando pergunta...</p>
+                <div id="answer-buttons" class="btn-container"></div>
+            </div>
+
+            <div id="timer">10</div>
+            <p id="score">Pontuação: 0</p>
+            <p id="greeting"></p>
+            <button id="restart-btn" style="display: none;">Recomeçar</button>
+            <div id="button-container"></div>
+        </div>
+    </div>
+
+    <footer class="game-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 QuizMaster - Todos os direitos reservados.</p>
+            <nav class="footer-nav">
+                <a href="#">Sobre o Jogo</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </nav>
+        </div>
+    </footer>
+    <audio id="background-music" autoplay loop>
+        <source src="musicas/trilha gta.m4a" type="audio/mp3">
+    <script src="script.js"></script>
+</body>
+</html>

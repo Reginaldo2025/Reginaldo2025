@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot de Programação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .chat-container {
+            width: 500px;
+            height: 300px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chat-body {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .chat-footer {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .bot-message, .user-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .bot-message {
+            background-color: #e1ffc7;
+            align-self: flex-start;
+        }
+
+        .user-message {
+            background-color: #d1e7ff;
+            align-self: flex-end;
+        }
+
+        .header {
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), rgba(255, 0, 0, 0.8));
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            padding: 10px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .header nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 20px;
+        }
+
+        .header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .header nav ul li {
+            margin: 0 15px;
+        }
+
+        .header nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .header nav ul li a:hover {
+            color: #ffcc00;
+        }
+
+        ul h1 {
+            color: #fff;
+            font-size: 25px;
+            margin-right: 35rem;
+        }
+
+        /*footer*/
+        .game-footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-nav a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .footer-nav {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav>
+            <ul>
+                <h1>Quiz Programing</h1>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="notiçias.html">Notícias</a></li>
+                <li><a href="chatbot.html">Chatbot</a></li>
+                <li><a href="contacto.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Chatbot de Programação</h2>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="bot-message">Olá! Eu sou o seu chatbot de programação. Como posso ajudar?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+    <footer class="game-footer">
+        <div class="footer-content">
+            <p>&copy; 2025 QuizMaster - Todos os direitos reservados.</p>
+            <nav class="footer-nav">
+                <a href="#">Sobre o Jogo</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+        const responses = {
+            'olá': 'Olá! Como posso ajudar você com programação?',
+            'como criar uma função em javascript?': 'Para criar uma função em JavaScript, você pode usar a sintaxe: function nomeDaFuncao() { // código }',
+            'o que é html?': 'HTML é a linguagem de marcação padrão para criar páginas da web.',
+            'o que é css?': 'CSS é uma linguagem de estilo usada para descrever a apresentação de um documento escrito em HTML ou XML.',
+            'o que é javascript?': 'JavaScript é uma linguagem de programação que permite a você implementar itens complexos em páginas web.',
+            'como declarar uma variável em python?': 'Para declarar uma variável em Python, basta atribuir um valor a um nome de variável, por exemplo: x = 10',
+            'o que é uma API?': 'API significa Interface de Programação de Aplicações. É um conjunto de definições e protocolos para construir e integrar software de aplicações.'
+        };
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() === '') return;
+
+            const chatBody = document.getElementById('chat-body');
+
+            // Add user message to chat
+            const userMessage = document.createElement('div');
+            userMessage.className = 'user-message';
+            userMessage.textContent = userInput;
+            chatBody.appendChild(userMessage);
+
+            // Clear input
+            document.getElementById('user-input').value = '';
+
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Get bot response
+            const botResponse = getBotResponse(userInput);
+            const botMessage = document.createElement('div');
+            botMessage.className = 'bot-message';
+            botMessage.textContent = botResponse;
+            chatBody.appendChild(botMessage);
+
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function getBotResponse(input) {
+            const lowerCaseInput = input.toLowerCase();
+            return responses[lowerCaseInput] || 'Desculpe, não entendi sua pergunta. Pode reformular?';
+        }
+    </script>
+</body>
+</html>
