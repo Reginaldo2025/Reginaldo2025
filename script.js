@@ -62,16 +62,16 @@ const questionsPhase1 = [
         question: "O que é uma linguagem orientada a objeto?",
         answers: [
             { text: "São linguagens que servem para estilizar", correct: false },
-            { text: "São linguagens que organizam o código em objetos", correct: true },
             { text: "São linguagens que eliminam objetos", correct: false },
+            { text: "São linguagens que organizam o código em objetos", correct: true },
             { text: "É toda aquela que utiliza banco de dados", correct: false }
         ]
     },
     {
         question: "O que é o HTML?",
         answers: [
-            { text: "Uma linguagem de programação", correct: false },
             { text: "Uma linguagem de marcação", correct: true },
+            { text: "Uma linguagem de programação", correct: false },
             { text: "Um framework", correct: false },
             { text: "Um sistema operacional", correct: false }
         ]
@@ -89,9 +89,9 @@ const questionsPhase1 = [
         question: "O que faz a propriedade CSS 'display: none'?",
         answers: [
             { text: "Exibe o elemento", correct: false },
-            { text: "Remove o elemento do fluxo do documento", correct: true },
             { text: "Muda a cor do elemento", correct: false },
-            { text: "Aumenta o tamanho do elemento", correct: false }
+            { text: "Aumenta o tamanho do elemento", correct: false },
+            { text: "Remove o elemento do fluxo do documento", correct: true }
         ]
     },
     {
@@ -106,10 +106,10 @@ const questionsPhase1 = [
     {
         question: "O que é um 'div' em HTML?",
         answers: [
-            { text: "Um elemento de formatação de texto", correct: false },
-            { text: "Um contêiner genérico para agrupar elementos", correct: true },
-            { text: "Um tipo de lista", correct: false },
-            { text: "Um link", correct: false }
+             { text: "Um contêiner genérico para agrupar elementos", correct: true },
+             { text: "Um elemento de formatação de texto", correct: false },
+             { text: "Um tipo de lista", correct: false },
+             { text: "Um link", correct: false }
         ]
     },
     {
@@ -124,8 +124,8 @@ const questionsPhase1 = [
     {
         question: "O que faz a propriedade CSS 'margin'?",
         answers: [
+             { text: "Define o espaço externo de um elemento", correct: true },
             { text: "Define o espaço interno de um elemento", correct: false },
-            { text: "Define o espaço externo de um elemento", correct: true },
             { text: "Muda a cor do texto", correct: false },
             { text: "Alinha o texto", correct: false }
         ]
@@ -134,8 +134,8 @@ const questionsPhase1 = [
         question: "Para que serve a tag <footer>?",
         answers: [
             { text: "Definir o cabeçalho da página", correct: false },
-            { text: "Definir o rodapé da página", correct: true },
             { text: "Criar uma lista", correct: false },
+             { text: "Definir o rodapé da página", correct: true },
             { text: "Adicionar imagens", correct: false }
         ]
     },
@@ -143,8 +143,8 @@ const questionsPhase1 = [
         question: "O que é um 'framework' JavaScript?",
         answers: [
             { text: "Uma biblioteca de estilos", correct: false },
-            { text: "Um conjunto de ferramentas para facilitar o desenvolvimento", correct: true },
             { text: "Um tipo de banco de dados", correct: false },
+             { text: "Um conjunto de ferramentas para facilitar o desenvolvimento", correct: true },
             { text: "Um sistema operacional", correct: false }
         ]
     },
@@ -161,9 +161,9 @@ const questionsPhase1 = [
         question: "O que é o CSS?",
         answers: [
             { text: "Uma linguagem de marcação", correct: false },
-            { text: "Uma linguagem de estilo", correct: true },
             { text: "Uma linguagem de programação", correct: false },
-            { text: "Um banco de dados", correct: false }
+            { text: "Um banco de dados", correct: false },
+            { text: "Uma linguagem de estilo", correct: true }
         ]
     },
     {
@@ -188,17 +188,17 @@ const questionsPhase1 = [
         question: "Qual a função da propriedade CSS 'background-color'?",
         answers: [
             { text: "Define a cor do texto", correct: false },
-            { text: "Define a cor de fundo de um elemento", correct: true },
             { text: "Define a cor da borda", correct: false },
-            { text: "Define a cor do link", correct: false }
+            { text: "Define a cor do link", correct: false },
+            { text: "Define a cor de fundo de um elemento", correct: true }
         ]
     },
     {
         question: "O que é uma API?",
         answers: [
             { text: "Um tipo de banco de dados", correct: false },
-            { text: "Uma interface que permite a comunicação entre diferentes sistemas", correct: true },
             { text: "Uma linguagem de programação", correct: false },
+            { text: "Uma interface que permite a comunicação entre diferentes sistemas", correct: true },
             { text: "Um framework CSS", correct: false }
         ]
     },
